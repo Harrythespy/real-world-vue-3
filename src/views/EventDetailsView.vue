@@ -15,7 +15,7 @@ interface Event {
 }
 
 const props = defineProps({
-  id: { required: true },
+  id: { type: String, required: true },
 })
 
 const event = ref<Event>()

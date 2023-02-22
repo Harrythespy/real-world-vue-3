@@ -3,7 +3,19 @@ import EventService from '@/services/EventService'
 import EventCard from '@/components/EventCard.vue'
 import { ref, onMounted } from 'vue'
 
-const events = ref(undefined)
+interface Event {
+  id: number
+  category: string
+  title: string
+  description: string
+  location: string
+  date: string
+  time: string
+  petsAllowed: boolean
+  organizer: string
+}
+
+const events = ref<[Event]>()
 onMounted(() => {
   EventService.getEvents()
     .then((response): void => {
